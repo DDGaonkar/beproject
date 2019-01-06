@@ -1,17 +1,17 @@
 sales_rank,overall_rating,positive,negative,no_of_reviews,discount_value,discount_rate
-2 in Books ,4.5,89,6,"4,768 customer reviews",124.00,(62%)
-1 in Books ,4.1,74,14,"1,276 customer reviews",89.00,(45%)
-4 in Books ,4.7,93,4,731 customer reviews,115.00,(46%)
-5 in Books ,4.6,91,5,"3,447 customer reviews",80.00,(53%)
-15 in Books ,4.5,90,6,"3,450 customer reviews",145.00,(36%)
-35 in Books ,4.4,85,6,331 customer reviews,120.00,(48%)
-6 in Books ,4.3,84,11,"1,096 customer reviews",231.00,(46%)
-27 in Books ,4.5,90,5,"2,875 customer reviews",87.00,(44%)
-79 in Books ,3.4,53,30,215 customer reviews,153.00,(47%)
-21 in Books ,4.5,91,4,671 customer reviews,87.00,(44%)
-272 in Books ,4.3,81,14,302 customer reviews,323.00,(46%)
-16 in Books ,4.2,80,8,470 customer reviews,11.00,(37%)
-66 in Books ,4.4,88,5,"2,749 customer reviews",67.00,(38%)
-26 in Books ,4.7,93,4,"1,218 customer reviews",125.00,(42%)
-226 in Books ,4.0,72,16,462 customer reviews,98.00,(50%)
-13 in Books ,4.5,91,5,"2,556 customer reviews",100.00,(50%)
+1,4.5,89,6,"4,869",124.00,62
+3,4.1,74,14,"1,387",93.00,47
+4,4.7,93,4,789,108.00,43
+7,4.3,84,11,"1,120",241.00,48
+6,4.6,91,5,"3,514",80.00,53
+16,4.5,90,6,"3,508",156.00,39
+77,4.4,86,6,345,117.00,47
+5,3.9,71,28,65,151.00,43
+55,3.4,53,31,219,155.00,48
+23,4.5,90,5,"2,897",84.00,42
+19,4.6,92,4,710,93.00,47
+15,4.2,79,9,489,11.00,37
+51,4.5,90,4,524,89.00,45
+43,4.6,91,5,"2,113",185.00,47
+127,4.0,73,15,473,96.00,49
+100,4.5,91,5,81,41.00,29
