@@ -60,7 +60,7 @@ for i in range(1, 2):
     contain = container1[1].find_all('span', {'class':'a-size-small'})
     no_of_reviews = contain[0].text.strip()
     no_of_reviews = no_of_reviews.split(' ')[0]
-    print(no_of_reviews)
+    print(float(no_of_reviews))
     li = [sales_rank, rating, positive, negative, no_of_reviews, discount_value, discount_rate]
     #thewriter.writerow([sales_rank+","+rating+","+positive+","+negative+","+no_of_reviews+","+discount_value+","+discount_rate+"\n"])
     thewriter.writerow(li)
