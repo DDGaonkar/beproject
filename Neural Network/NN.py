@@ -1,69 +1,76 @@
+#!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
-Created on Fri Dec 21 15:42:26 2018
+Created on Sun Jan  6 21:37:17 2019
 
-@author: abhis
+@author: deepanshu
 """
 
 import numpy as np
 import matplotlib.pyplot as plt
 import pandas as pd
 
-dataset = pd.read_csv('')
-X = dataset.iloc[:, 1:2].values
-y = dataset.iloc[:, 2].values
+dataset = pd.read_csv('data1.csv')
+# X: independent variable matrix & y: dependent variable vector
+X = dataset.iloc[:,1:7].values
+# X = pd.DataFrame(X)
+Y  = dataset.iloc[:,0].values
 
-from sklearn.preprocessing import LabelEncoder, OneHotEncoder
-labelencoder_X_1 = LabelEncoder()
-X[:, 1] = labelencoder_X_1.fit_transform(X[:,1])
+# Encoding data
+# from sklearn.preprocessing import LabelEncoder
+# labelencoder_x = LabelEncoder()
+# X = labelencoder_x.fit_transform(X)
 
-onehotencoder = OneHotEncoder(Categorical_features = [1])
-X = onehotencoder.fit_transform(X).toarray()
-
+# splitting the dataset into training set and testing set 
 from sklearn.cross_validation import train_test_split
-X_train, X_test, Y_train, Y_test = train_test_split(X,y, test_size = 0.2, random_state = 0)
+X_train, X_test, Y_train, Y_test = train_test_split(X, Y, test_size = 0.2, random_state = 0)
 
+# feature scaling
 from sklearn.preprocessing import StandardScaler
-sc = StandardScaler()
-X_train = sc.fit_transform(X_train)
-X_test = sc.transform(X_test)
+sc_X = StandardScaler()
+X_train = sc_X.fit_transform(X_train)
+X_test = sc_X.transform(X_test)
 
-import keras
+# Importing keras libraries and packages
+import keras 
 from keras.models import Sequential
-from keras.layers import Dense
+from keras.layers import Dense 
 
-classifier = Sequential()
+# Initializing the ANN
+model = Sequential()
 
-classifier.add(Dense(output_dim = 10, init = 'uniform', activation = 'relu', input_dim = 11))
+# Adding the input layer and the first hidden layer
+# model.add(Dense(4, kernel_initializer = 'uniform', activation = 'relu', input_dim == 6))    
+model.add(Dense(4, kernel_initializer = 'uniform' , activation = 'linear', input_dim = 6))    
 
-classifier.add(Dense(output_dim = 10, init = 'uniform', activation = 'relu'))
+# Adding another hidden layer 
+model.add(Dense(4, kernel_initializer = 'uniform', activation = 'linear'))
 
-classifier.add(Dense(output_dim = 1, init = 'uniform', activation = 'sigmoid'))
+# Adding the output layer 
+model.add(Dense(units= 1, kernel_initializer = 'uniform', activation = 'linear'))        
 
-classifier.compile(optimizer = 'adam', loss = 'categorical_crossentropy', metrics = ['accuracy'])
+# Compiling the ANN
+model.compile(optimizer = 'adam', loss = 'mse', metrics = ['accuracy'])
 
-classifier.fit(X_train, Y_train, batch_size = 10, nb_epoch = 100)
+# Fitting the ANN to the training set 
+model.fit(X_train, Y_train, batch_size = 10, epochs = 100)
 
-y_pred = classifier.predict(X_test)
+# predicting the test set result 
+Y_pred = model.predict(X_test)
+
+"""
+# Making the confusion matrix 
 
 from sklearn.metrics import confusion_matrix
-cm = confusion_matrix(y_test,y_pred)
+cm = confusion_matrix(Y_test, Y_pred) 
+"""
 
+"""
+# fitting Multiple Linear Regression to the training set 
+from sklearn.linear_model import LinearRegression
+regressor = LinearRegression()
+regressor.fit(X_train, Y_train)
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+# predicting test set results 
+Y_pred = regressor.predict(X_test)
+"""
