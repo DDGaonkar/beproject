@@ -58,6 +58,12 @@ model.fit(X_train, Y_train, batch_size = 10, epochs = 100)
 # predicting the test set result 
 Y_pred = model.predict(X_test)
 
+# Applying k-fold cross validation 
+from sklearn.model_selection import cross_val_score
+accuracies = cross_val_score(estimator = model, X = X_train, y = Y_train, cv = 10)
+accuracies.mean()
+accuracies.std()
+
 """
 # Making the confusion matrix 
 
