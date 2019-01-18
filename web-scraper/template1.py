@@ -8,7 +8,7 @@ Created on Tue Sep 11 11:40:49 2018
 
 import requests 
 import bs4
-res = requests.get('https://www.amazon.in/s/ref=sr_pg_2?rh=i%3Aaps%2Ck%3Abooks&page=1&keywords=books')
+res = requests.get('https://www.amazon.in/s/ref=nb_sb_noss?url=search-alias%3Daps&field-keywords=books')
 soup = bs4.BeautifulSoup(res.text, 'lxml')
 
 #for link in soup.select('.a-text-normal'):
