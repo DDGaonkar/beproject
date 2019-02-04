@@ -1,6 +1,7 @@
 #res = requests.get('https://www.amazon.in/s/ref=sr_pg_2?rh=i%3Aaps%2Ck%3Abooks&page=1&keywords=books')
 
-# "https://www.amazon.in/s/ref=sr_pg_2?fst=as%3Aon&rh=n%3A976389031%2Ck%3Abooks&page=2&keywords=books"
+# https://www.amazon.in/s/ref=sr_pg_3?rh=n%3A976389031%2Ck%3Abooks&page=3&keywords=books&ie=UTF8&qid=1549263155
+# https://www.amazon.in/s/ref=sr_pg_2?fst=as%3Aon&rh=n%3A976389031%2Ck%3Abooks&page=2&keywords=books
 #"https://www.amazon.in/s/ref=sr_pg_2?rh=i%3Aaps%2Ck%3Abooks&page=1&keywords=books"
 # https://www.amazon.in/s/ref=sr_pg_2?rh=n%3A976389031%2Ck%3Abooks&page=2&keywords=books
 
