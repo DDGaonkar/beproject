@@ -9,13 +9,13 @@ import requests
 import bs4
 import csv
 
-for i in range(1, 2):
+for i in range(1, 20):
  x= 'https://www.amazon.in/s/ref=sr_pg_'+ str(i) +'?rh=n%3A976389031%2Ck%3Abooks&page=' + str(i) + '&keywords=books'
  #print(x)
  res = requests.get(x)
  #filename = "data1.csv"
  #f = open(filename, "w")
- with open('data1.csv', 'w') as f:
+ with open('data2.csv', 'w') as f:
   thewriter = csv.writer(f)
   soup = bs4.BeautifulSoup(res.text, 'lxml')
   items = soup.find_all('li', 's-result-item') 
