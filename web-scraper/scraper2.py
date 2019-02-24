@@ -2,13 +2,13 @@ import requests
 import bs4
 import csv
 
-with open('data2.csv', 'w') as f:
+with open('data3.csv', 'w') as f:
  thewriter = csv.writer(f)
- # thewriter.writerow(['sales_rank', 'overall_rating', 'positive', 'negative', 'no_of_reviews', 'discount_value', 'discount_rate'])
+ thewriter.writerow(['sales_rank', 'overall_rating', 'positive', 'negative', 'no_of_reviews', 'discount_value', 'discount_rate'])
  count = 0
- for i in range(1, 76):
+ for i in range(1, 2):
+  print('PAGE NO: {}'.format(i))
   x= 'https://www.amazon.in/s/ref=sr_pg_'+ str(i) +'?rh=n%3A976389031%2Ck%3Abooks&page=' + str(i) + '&keywords=books'
-  #print(x)
   res = requests.get(x)
   soup = bs4.BeautifulSoup(res.text, 'lxml')
   items = soup.find_all('li', 's-result-item') 

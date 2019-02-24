@@ -10,7 +10,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 import pandas as pd
 
-dataset = pd.read_csv('data1.csv')
+dataset = pd.read_csv('data2.csv')
 # X: independent variable matrix & y: dependent variable vector
 X = dataset.iloc[:,1:7].values
 # X = pd.DataFrame(X)
@@ -20,6 +20,7 @@ Y  = dataset.iloc[:,0].values
 # from sklearn.preprocessing import LabelEncoder
 # labelencoder_x = LabelEncoder()
 # X = labelencoder_x.fit_transform(X)
+
 
 # splitting the dataset into training set and testing set 
 from sklearn.cross_validation import train_test_split
