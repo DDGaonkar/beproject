@@ -6,7 +6,7 @@ with open('data3.csv', 'w') as f:
  thewriter = csv.writer(f)
  thewriter.writerow(['sales_rank', 'overall_rating', 'positive', 'negative', 'no_of_reviews', 'discount_value', 'discount_rate'])
  count = 0
- for i in range(1, 2):
+ for i in range(1, 76):
   print('PAGE NO: {}'.format(i))
   x= 'https://www.amazon.in/s/ref=sr_pg_'+ str(i) +'?rh=n%3A976389031%2Ck%3Abooks&page=' + str(i) + '&keywords=books'
   res = requests.get(x)
