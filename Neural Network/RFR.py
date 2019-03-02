@@ -18,7 +18,7 @@ Y  = dataset.iloc[:,0].values
 
 # Splitting the dataset
 from sklearn.cross_validation import train_test_split
-X_train, X_test, Y_train, Y_test = train_test_split(X, Y, test_size = 0.1, random_state = 0)
+X_train, X_test, Y_train, Y_test = train_test_split(X, Y, test_size = 0.2, random_state = 0)
 
 """
 # Feature Scaling
@@ -35,13 +35,14 @@ regressor.fit(X, Y)
 """
 # Fitting Random Forest Regression to the dataset
 from sklearn.ensemble import RandomForestRegressor
-regressor = RandomForestRegressor(n_estimators=10, random_state=10)
-regressor.fit(X, Y)
+regressor = RandomForestRegressor(n_estimators=55, random_state=10)
+regressor.fit(X_train, Y_train)
 
 # predicting new result
-ypred = regressor.predict(X_test)
+ypred = regressor.predict(X_test[13])
+# regressor.score(X, Y)
 
-errors = abs(ypred - Y_test)
+errors = abs(ypred - Y_test[13])
 
 print('Average absolute error:', round(np.mean(errors), 2), 'degrees.')
 
@@ -54,7 +55,9 @@ print('Accuracy:', round(accuracy, 2), '%.')
 # Y_pred = sc_y.inverse_transform(regressor.predict(sc_x.fit_transform(X_test)))
 
 from sklearn.model_selection import cross_val_score
-accuracies = cross_val_score(regressor, X = X_train, y = Y_train)
+accuracies = cross_val_score(regressor, X = X_train, y = Y_train, cv=5, scoring='accuracy')
 accuracies.mean()
 accuracies.std()
 
+from sklearn import metrics
+score = np.sqrt(metrics.mean_squared_error(ypred,Y_test))

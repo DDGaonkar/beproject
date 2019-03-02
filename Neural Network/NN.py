@@ -10,7 +10,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 import pandas as pd
 
-dataset = pd.read_csv('data2.csv')
+dataset = pd.read_csv('data3.csv')
 # X: independent variable matrix & y: dependent variable vector
 X = dataset.iloc[:,1:7].values
 # X = pd.DataFrame(X)
@@ -24,7 +24,7 @@ Y  = dataset.iloc[:,0].values
 
 # splitting the dataset into training set and testing set 
 from sklearn.cross_validation import train_test_split
-X_train, X_test, Y_train, Y_test = train_test_split(X, Y, test_size = 0.2, random_state = 0)
+X_train, X_test, Y_train, Y_test = train_test_split(X, Y, test_size = 0.1, random_state = 0)
 
 """
 # feature scaling
@@ -38,6 +38,7 @@ X_test = sc_X.transform(X_test)
 import keras 
 from keras.models import Sequential
 from keras.layers import Dense 
+from keras.layers.core import Dropout
 
 # Initializing the ANN
 model = Sequential()
@@ -45,6 +46,8 @@ model = Sequential()
 # Adding the input layer and the first hidden layer
 # model.add(Dense(4, kernel_initializer = 'uniform', activation = 'relu', input_dim == 6))    
 model.add(Dense(4, kernel_initializer = 'uniform' , activation = 'relu', input_dim = 6))    
+
+model.add(Dropout(0.1))
 
 # Adding another hidden layer 
 model.add(Dense(4, kernel_initializer = 'uniform', activation = 'relu'))
