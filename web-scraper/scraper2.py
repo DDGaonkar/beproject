@@ -1,18 +1,22 @@
 import requests
 import bs4
 import csv
+from time import sleep
 
-with open('data3.csv', 'w') as f:
+with open('data4.csv', 'w') as f:
  thewriter = csv.writer(f)
  thewriter.writerow(['sales_rank', 'overall_rating', 'positive', 'negative', 'no_of_reviews', 'discount_value', 'discount_rate'])
  count = 0
- for i in range(1, 76):
+ headers = {'User-Agent': 'Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:64.0) Gecko/20100101 Firefox/64.0'}
+ for i in range(10, 12):
   print('PAGE NO: {}'.format(i))
   x= 'https://www.amazon.in/s/ref=sr_pg_'+ str(i) +'?rh=n%3A976389031%2Ck%3Abooks&page=' + str(i) + '&keywords=books'
-  res = requests.get(x)
+  res = requests.get(x, headers=headers)
+  # print(res)
   soup = bs4.BeautifulSoup(res.text, 'lxml')
   items = soup.find_all('li', 's-result-item') 
   for item in items:
+    # sleep(3)
     try:
      # print(item.a['href'])
      RES = requests.get(item.a['href'])
