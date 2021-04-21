@@ -1,2 +1,2 @@
 # beproject
-understanding and predicting factors which influences product sales 
+Analysis and understanding of parameters influencing online product sales
